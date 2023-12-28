@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz</title>
+    <style>
+      body {
+        margin: 1rem auto;
+        padding: 3rem;
+        font-family: sans-serif;
+      }
+      header {
+        width: 50%;
+        margin: 1em auto;
+      }
+      main {
+        min-width: 25rem;
+        max-width: 50%;
+        margin: 0px auto;
+        display: flex;
+        flex-direction: column;
+      }
+      #statement {
+        border: 1px solid black;
+        border-radius: 0.5rem;
+        box-shadow: 5px 5px 5px gray;
+        padding: 1rem;
+        font-size: x-large;
+        text-align: center;
+        margin: 1rem 0px;
+        min-height: 2em;
+      }
+      #explanation {
+        padding: 1rem;
+        text-align: center;
+      }
+      #options {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+      button {
+        padding: 0.5rem;
+        font-size: medium;
+        border-radius: 5px;
+      }
+      .correct {
+        background-color: lightgreen;
+      }
+      .incorrect {
+        background-color: lightpink;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Quiz.js</h1>
+      <p>Do you know JS? Find out!</p>
+    </header>
+    <main>
+      <div id="statement"></div>
+
+      <div id="optoons">
+        <button name="true" value="true">True</button>
+        <button name="false" value="false">False</button>
+      </div>
+
+      <div id="explanation"></div>
+    </main>
+    <script>
+      //Todo1
+      //Select all the elements
+      const statement = document.getElementById("statement");
+      const optionButtons = document.querySelector("#options").children;
+      const explanation = document.getElementById("explanation");
+
+      //Todo2: Declare and assign a variable called fact
+      //Its value should be an object with a statement, true/false answer, and explanation
+
+      const fact = {
+        statement: "Arrays are like objects",
+        answer: true,
+        explanation: "Arrays are kind of objects with special properties",
+      };
+
+      //Todo3: Set the text of the statement element to the fact's statement
+      statement.textContent = fact.statement;
+
+      //Todo4: Declare disable & enable functions to set or remove the "disabled" attribute
+      // disable(button) should set the button element's attribute "disabled" to the value ""
+      const disable = (button) => {
+        button.setAttribute("disabled", "");
+      };
+
+      //enable(button) should remove the attribute "disabled" from the button element
+      const enable = (button) => button.removeAttribute("disabled");
+
+      //Todo5: Declare an isCorrect function that comapres a guess to the right answer
+      //isCorrect(guess) should return true if the guess matches the fact's answer
+      function isCorrect(guessString) {
+        return guessString === fact.answer.toString();
+      }
+
+      //Todo6: Use a for loop to click event listener to each of the optionButtons
+    </script>
+  </body>
+</html>
